@@ -8,6 +8,7 @@ puts [1000.0, 200.0, 50.0].foldl("/")
 
 # Output: 0.1
 
+=begin
 # Interpretation & Conclusion:
 - 'inject' takes an optional argument and a block which will be
 executed per array element
@@ -27,4 +28,4 @@ Iteration | result value | i value |
    2      |      5.0     |    50.0 | 
 
 Hence, finally value of result is 0.1(i.e 5.0/50.0)
-
+=end
