@@ -1,0 +1,8 @@
+# Course URL: 
+https://rubymonk.com/learning/books/2-metaprogramming-ruby
+
+# Description of Course:
+Beginner-level course about the 'Ruby Metaprogramming'.
+Course tag is "Code that writes code. Add more powerful abstractions 
+and reduce duplication through Ruby that writes Ruby!
+
