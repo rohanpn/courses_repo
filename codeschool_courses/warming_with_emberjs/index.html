@@ -11,24 +11,28 @@
   <script src='app.js'></script>
 </head>
 <body>
-  <script type='text/x-handlebars'>
+  <script type='text/x-handlebars' data-template-name='application'>
     <div class='navbar navbar-default'>
       <div class='container'>
-        <a href='#' class='navbar-brand'><img class='logo_css' src='images/logo.jpg' alt='logo' height='34' width='224' /></a>
+        <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='40' /></a>
         <ul class='nav navbar-nav navbar-right'>
-          <li class='active' href='#/'><a >Home</a></li>
-          <li><a href='#/about'>About</a></li>
+          <li href='#' class='active'>Home</li>
+          <li href='#/about'>About</li>
         </ul>
       </div>
     </div>
-    <div class='container'>
-      <h1>Welcome to The Flint &amp; Flame!</h1>
-    </div>
+    <div class='container'>{{outlet}}</div>
     <footer class='container'>
-    <hr />
-    <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
-    <p class='pull-right'><a href='#/credits'>Credits</a></p>
-  </footer>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'><a href='#/credits'>Credits</a></p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+      <h1>About the fire spirits !</h1>
   </script>
 </body>
 </html>
