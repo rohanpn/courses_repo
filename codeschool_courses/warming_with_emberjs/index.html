@@ -31,7 +31,9 @@
     </footer>
   </script>
   <script type='text/x-handlebars' data-template-name='index'>
-    <h1>Welcome to The Flint &amp; Flame!</h1>
+    <p>There are {{productsCount}} products</p>
+    <img {{bind-attr src='logo'}} alt='Logo' class='logo_css' />
+    <p>Rendered on {{time}}</p>
   </script>
   <script type='text/x-handlebars' data-template-name='about'>
     <h1>About The Fire Spirits</h1>
