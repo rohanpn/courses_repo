@@ -19,6 +19,7 @@
           {{#link-to 'index' tagName='li' }}Home{{/link-to}}
           {{#link-to 'about' tagName='li' }}About{{/link-to}}
           {{#link-to 'products' tagName='li'}}Products{{/link-to}}
+          {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
         </ul>
       </div>
     </div>
@@ -68,6 +69,20 @@
           </div>
         </li>
       {{/each}}
+    </ul>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contacts'>
+    <h1>Contacts</h1>
+    <ul class='list-unstyled'>
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='avatar'}} class='img-thumbnail col-sm-5'/>
+        <div class='col-sm-7'>
+          <h2>{{name}}</h2>
+          <p>Contact for {{about}}</p>
+        </div>
+      </li>
+    {{/each}}
     </ul>
   </script>
 </body>

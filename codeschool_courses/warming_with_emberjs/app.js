@@ -18,11 +18,24 @@ App.PRODUCTS = [
     image: 'images/products/clock.jpg'
   }
 ];
+App.CONTACTS = [
+  {
+    name: 'Man Kumari',
+    about: 'Sales and Marketing',
+    avatar: 'images/contacts/man.jpg'
+  },
+  {
+    name: 'Budh Ram',
+    about: 'Support and Issues',
+    avatar: 'images/contacts/ram.jpg'
+  }
+];
 
 App.Router.map(function() {
   this.route('credits', { path: '/thanks' });
   this.route('about');
   this.resource('products');
+  this.resource('contacts');
 });
 
 App.IndexController = Ember.Controller.extend({
@@ -42,5 +55,10 @@ App.AboutController = Ember.Controller.extend({
 App.ProductsRoute = Ember.Route.extend({
   model: function() {
     return App.PRODUCTS;
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
   }
 });
