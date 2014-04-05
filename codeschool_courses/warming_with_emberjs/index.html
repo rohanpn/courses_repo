@@ -14,14 +14,16 @@
   <script type='text/x-handlebars' data-template-name='application'>
     <div class='navbar navbar-default'>
       <div class='container'>
-        <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='40' /></a>
+        {{#link-to 'index' class='navbar-brand' }}Home<img src='images/logo.png' alt='logo' height='34' width='40' />{{/link-to}}
         <ul class='nav navbar-nav navbar-right'>
-          <li><a href='#' class='active'>Home</a></li>
-          <li><a href='#/about'>About</a></li>
+          {{#link-to 'index' tagName='li' }}Home{{/link-to}}
+          {{#link-to 'about' tagName='li' }}About{{/link-to}}
         </ul>
       </div>
     </div>
-    <div class='container'>{{outlet}}</div>
+    <div class='container'>
+      {{outlet}}
+    </div>
     <footer class='container'>
       <hr />
       <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
@@ -32,10 +34,11 @@
     <h1>Welcome to The Flint &amp; Flame!</h1>
   </script>
   <script type='text/x-handlebars' data-template-name='about'>
-    <h1>About the fire spirits !</h1>
+    <h1>About The Fire Spirits</h1>
   </script>
   <script type='text/x-handlebars' data-template-name='credits'>
-    <h1>Credits goes to <b>ember.js developers</b> !</h1>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
   </script>
 </body>
 </html>
