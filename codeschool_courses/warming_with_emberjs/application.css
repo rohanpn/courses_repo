@@ -120,3 +120,8 @@ h2 {
   height: 34px;
   width: 50px;
 }
+
+.img-thumbnail {
+  height: 150px;
+  width: 150px;
+}
