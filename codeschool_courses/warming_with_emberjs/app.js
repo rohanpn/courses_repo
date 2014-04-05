@@ -14,3 +14,13 @@ App.IndexController = Ember.Controller.extend({
     return (new Date()).toDateString();
   }.property()
 });
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Budh Ram Gurung',
+  open: function(){
+    if ( (new Date()).getDay() !== 0 ){
+      return 'We are open!!!';
+    } else {
+      return 'Sunday closed :) ';
+    }
+  }.property()
+});

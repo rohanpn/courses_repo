@@ -31,12 +31,20 @@
     </footer>
   </script>
   <script type='text/x-handlebars' data-template-name='index'>
-    <p>There are {{productsCount}} products</p>
-    <img {{bind-attr src='logo'}} alt='Logo' class='logo_css' />
-    <p>Rendered on {{time}}</p>
+    <div class="jumbotron">
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class="tagline">
+        <img {{bind-attr src='logo'}} alt='Logo' class='logo_css'/>
+        Everything you need to make it through the winter.
+      </p>
+      <p>Browse All {{productCount}} Items &raquo;</p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p>
   </script>
   <script type='text/x-handlebars' data-template-name='about'>
     <h1>About The Fire Spirits</h1>
+    <p>Contact {{contactName}}</p>
+    <p>{{open}}</p>
   </script>
   <script type='text/x-handlebars' data-template-name='credits'>
     <h1>Thanks for the Help!</h1>
