@@ -65,26 +65,46 @@
           <div class='col-md-7'>
             <h2>{{title}}</h2>
             <p class='product-description'>{{description}}</p>
-            <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+            <p>{{#link-to 'product' this tagName='button' class='btn btn-success' }}Buy for ${{price}}{{/link-to}}</p>
           </div>
         </li>
       {{/each}}
     </ul>
+  </script>
+  <script type='text/x-handlebars' data-template-name='product'>
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <p>Buy for ${{price}}</p>
+    <div class='col-md-5'>
+      <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
+    </div>
   </script>
   <script type='text/x-handlebars' data-template-name='contacts'>
     <h1>Contacts</h1>
     <ul class='list-unstyled'>
     {{#each}}
       <li class='row'>
-        <img {{bind-attr src='avatar'}} class='img-thumbnail col-sm-5'/>
+        <img {{bind-attr src='avatar'}} class='img-thumbnail col-sm-5' {{bind-attr alt='name'}}/>
         <div class='col-sm-7'>
-          <h2>{{name}}</h2>
-          <p>Contact for {{about}}</p>
+          <h2>{{#link-to 'contact' this }}{{name}}{{/link-to}}</h2>
+          <p>{{about}}</p>
         </div>
       </li>
     {{/each}}
     </ul>
   </script>
+  <script type='text/x-handlebars' data-template-name='contact'>
+    <div class='row'>
+      <div class='col-sm-7'>
+        <h2>{{name}}</h2>
+        <p class='text-muted'>{{about}}</p>
+      </div>
+      <div class='col-sm-5'>
+        <img {{bind-attr src='avatar'}} class='img-thumbnail img-rounded' {{bind-attr alt='name'}}/>
+      </div>
+    </div>
+  </script>
+
 </body>
 </html>
 
