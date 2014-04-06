@@ -2,6 +2,10 @@ var App = Ember.Application.create({
   LOG_TRANSITIONS: true   // log to the console when visiting a new page
 });
 
+Handlebars.registerHelper("log", function(context) {
+  return console.log(context);
+});
+
 App.PRODUCTS = [
   {
     title: 'Chair',
@@ -33,21 +37,22 @@ App.CONTACTS = [
 
 App.Router.map(function() {
   this.route('credits', { path: '/thanks' });
-  this.route('about');
-  this.resource('products');
-  this.resource('product', { path: '/products/:title'});
-  this.resource('contacts');
-  this.resource('contact', { path: '/contacts/:name'});
+  this.resource('products', function(){
+    this.resource('product', { path: '/:title'});
+  });
+  this.resource('contacts', function(){
+    this.resource('contact', { path: '/:name'});
+  });
 });
 
 App.IndexController = Ember.Controller.extend({
-  productsCount: 6,
+  productsCount: 2,
   logo: 'images/logo.png',
   time: function(){
     return (new Date()).toDateString();
   }.property()
 });
-App.AboutController = Ember.Controller.extend({
+App.ContactsIndexController = Ember.Controller.extend({
   contactName: 'Budh Ram Gurung',
   open: function(){
     return (new Date()).getDay() === 0 ? 'Closed !!!' : 'Open !!!';
@@ -70,7 +75,7 @@ App.ContactsRoute = Ember.Route.extend({
     return App.CONTACTS;
   }
 });
-App.ProductRoute = Ember.Route.extend({
+App.ContactRoute = Ember.Route.extend({
   model: function(params) {
     console.log(params);
     return App.CONTACTS.findBy('name', params.name);
