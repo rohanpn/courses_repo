@@ -90,20 +90,28 @@ App.Router.map(function() {
   });
 });
 
-App.IndexController = Ember.Controller.extend({
-  productsCount: 2,
+App.IndexController = Ember.ArrayController.extend({
+  productsCount: Ember.computed.alias('length'),
   logo: 'images/logo.png',
-  time: function(){
+  time: function() {
     return (new Date()).toDateString();
   }.property()
 });
-App.ContactsIndexController = Ember.Controller.extend({
-  contactName: 'Budh Ram Gurung',
-  open: function(){
-    return (new Date()).getDay() === 0 ? 'Closed !!!' : 'Open !!!';
+App.ContactsIndexController = Ember.ObjectController.extend({
+  contactName: Ember.computed.alias('name'),
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
   }.property()
 });
+App.ProductsController = Ember.ArrayController.extend({
+  sortProperties: ['title']
+});
 
+App.IndexRoute = Ember.Route.extend({
+  model: function(){
+    return this.store.findAll('product');
+  }
+});
 App.ProductsRoute = Ember.Route.extend({
   model: function() {
     return this.store.findAll('product');
@@ -124,5 +132,10 @@ App.ContactRoute = Ember.Route.extend({
   model: function(params) {
     console.log(params);
     return this.store.find('contact', params.contact_id);
+  }
+});
+App.ContactsIndexRoute = Ember.Route.extend({
+  model: function() {
+    return App.Contact.store.find('contact', 201);
   }
 });
