@@ -36,6 +36,16 @@ App.Product.FIXTURES = [
     isOnSale: false,
     image: 'images/products/clock.jpg',
     reviews: []
+  },
+  {
+    id: 3,
+    crafter: 202,
+    title: 'Bean Bag',
+    price: 30,
+    description: 'Bean Bag is...',
+    isOnSale: true,
+    image: 'images/products/bean_bag.jpg',
+    reviews: []
   }
 ];
 
@@ -95,7 +105,10 @@ App.IndexController = Ember.ArrayController.extend({
   logo: 'images/logo.png',
   time: function() {
     return (new Date()).toDateString();
-  }.property()
+  }.property(),
+  onSale: function() {
+    return this.filterBy('isOnSale').slice(0, 3);
+  }.property('@each.isOnSale')
 });
 App.ContactsIndexController = Ember.ObjectController.extend({
   contactName: Ember.computed.alias('name'),
