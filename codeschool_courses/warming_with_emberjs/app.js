@@ -25,7 +25,8 @@ App.Product.FIXTURES = [
     description: 'Chair is...',
     isOnSale: true,
     image: 'images/products/chair.jpg',
-    reviews: [100, 101]
+    reviews: [100, 101],
+    ratings: []
   },
   {
     id: 2,
@@ -35,7 +36,8 @@ App.Product.FIXTURES = [
     description: 'Clock is...',
     isOnSale: false,
     image: 'images/products/clock.jpg',
-    reviews: []
+    reviews: [],
+    ratings: []
   },
   {
     id: 3,
@@ -45,7 +47,8 @@ App.Product.FIXTURES = [
     description: 'Bean Bag is...',
     isOnSale: true,
     image: 'images/products/bean_bag.jpg',
-    reviews: []
+    reviews: [],
+    ratings: []
   }
 ];
 
@@ -120,6 +123,30 @@ App.ContactsIndexController = Ember.ObjectController.extend({
 });
 App.ProductsController = Ember.ArrayController.extend({
   sortProperties: ['title']
+});
+App.ProductController = Ember.ObjectController.extend({
+  text: '',
+  selectedRating: 5,
+  actions: {
+    createReview: function(){
+      var review = this.store.createRecord('review', {
+        text: this.get('text'),
+        product: this.get('model'),
+        reviewedAt: new Date()
+      });
+      var controller = this;
+      review.save().then(function() {
+        controller.set('text', '');
+        controller.get('model.reviews').addObject(review);
+      });
+    },
+    createRating: function() {
+      var product = this.get('model'),
+          selectedRating = this.get('selectedRating');
+      product.get('ratings').addObject(selectedRating);
+      product.save();
+    }
+  }
 });
 App.ContactsController = Ember.ArrayController.extend({
   sortProperties: ['name'],

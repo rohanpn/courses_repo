@@ -91,8 +91,14 @@
         <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
       </div>
       {{render 'reviews' reviews}}
-      {{contact-details contact=crafter className='row'}}
-      <p>Finely crafted by {{#link-to 'contact' crafter}}{{crafter.name}}{{/link-to}}.</p>
+      <div class='new-review'>
+        <h3>Review {{title}}</h3>
+        {{#if text}}
+          <p class='text-muted'>{{text}}</p>
+        {{/if}}
+        {{textarea valueBinding='text'}}
+        <button {{action 'createReview'}} class='btn-primary'>Review</button>
+      </div>
     </div>
   </script>
   <script type='text/x-handlebars' data-template-name='products/index'>
