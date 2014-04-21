@@ -1,127 +1,112 @@
- .tagline {
-  margin-bottom: 20px;
-}
 
+.tagline {
+    margin-bottom: 20px;
+}
 .label a {
-  color: #fff;
-  text-decoration: none;
+    color: #FFFFFF;
+    text-decoration: none;
 }
-
 .product-detail.row {
-  margin: 1em 0;
-  border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #EEEEEE;
+    margin: 1em 0;
 }
 .product-detail img {
-  max-height: 150px;
-  max-width: 150px;
+    max-height: 150px;
+    max-width: 150px;
 }
 .product-detail h2 {
-  margin-top: 0;
-  margin-bottom: 0px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 .product-description {
-  margin-top: 10px;
+    margin-top: 10px;
 }
-
 .list-rating {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 .list-rating li {
-  display: inline;
-  list-style-type: none;
+    display: inline;
+    list-style-type: none;
 }
-
 .navbar-default .navbar-nav > li {
-  cursor: pointer;
-  background-color: #824d3d;
-  padding: 12px 12px;
-  margin-top: -7px;
-  color: #f0eee1;
-  font-weight: bold;
+    background-color: #824D3D;
+    color: #F0EEE1;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: -7px;
+    padding: 12px;
 }
 .navbar-default .navbar-nav > li a {
-  padding: 0;
-  color: #f0eee1;
+    color: #F0EEE1;
+    padding: 0;
 }
 .navbar-default .navbar-nav > li:hover {
-  background-color: #e87714;
+    background-color: #E87714;
 }
 .navbar-default .navbar-nav > li.active {
-  color: #fff;
-  background-color: #b65a31;
+    background-color: #B65A31;
+    color: #FFFFFF;
 }
-
 textarea {
-  width: 100%;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    width: 100%;
 }
-
 h2 {
-  margin-top: 5px;
+    margin-top: 5px;
 }
-
 .reviews {
-  padding: 0;
+    padding: 0;
 }
 .reviews > li {
-  padding: 4px;
-  border-bottom: 1px solid rgba(130, 98, 88, 0.40);
-  font-size: 80%;
+    border-bottom: 1px solid rgba(130, 98, 88, 0.4);
+    font-size: 80%;
+    padding: 4px;
 }
-.reviews > li  ul {
-  padding-bottom: 10px;
+.reviews > li ul {
+    padding-bottom: 10px;
 }
 .reviews li:last-of-type {
-  border: none;
+    border: medium none;
 }
 .reviews li.read-more {
-  position: relative;
-  cursor: pointer;
-  padding-bottom: 30px;
+    cursor: pointer;
+    padding-bottom: 30px;
+    position: relative;
 }
 .reviews li .content {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 .reviews li.read-more .content {
-  height: 40px;
-  overflow: hidden;
+    height: 40px;
+    overflow: hidden;
 }
 .reviews li .expand {
-  display: none;
+    display: none;
 }
 .reviews li.read-more .expand {
-  display: block;
-  width:100%;
-  position: absolute;
-  bottom: 0px;
-  height: 25px;
-  text-align: center;
+    bottom: 0;
+    display: block;
+    height: 25px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
 }
 .reviews li.read-more:not(.is-expanded) .expand {
-  height: 75px;
-  padding-top: 50px;
-  background: -webkit-linear-gradient(rgba(240, 238, 225, 0),rgba(240, 238, 225, 1));
-  background-image: -moz-linear-gradient(rgba(240, 238, 225, 0),rgba(240, 238, 225, 1));
-  background-image: -o-linear-gradient(rgba(240, 238, 225, 0),rgba(240, 238, 225, 1));
-  background-image: linear-gradient(rgba(240, 238, 225, 0),rgba(240, 238, 225, 1));
-  background-image: -ms-linear-gradient(rgba(240, 238, 225, 0),rgba(240, 238, 225, 1));
+    background-image: linear-gradient(rgba(240, 238, 225, 0), #F0EEE1);
+    height: 75px;
+    padding-top: 50px;
 }
-
 .reviews li.read-more.is-expanded .content {
-  height: auto;
+    height: auto;
 }
-
 .reviews li.read-more span.label {
-  display: absolute;
 }
-
 .logo_css {
-  height: 34px;
-  width: 50px;
+    height: 34px;
+    width: 50px;
 }
-
 .img-thumbnail {
-  height: 150px;
-  width: 160px;
+    height: 150px;
+    width: 160px;
 }

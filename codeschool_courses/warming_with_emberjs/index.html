@@ -90,7 +90,7 @@
       <div class='col-sm-5'>
         <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
       </div>
-      {{partial 'reviews'}}
+      {{render 'reviews' reviews}}
       {{contact-details contact=crafter className='row'}}
       <p>Finely crafted by {{#link-to 'contact' crafter}}{{crafter.name}}{{/link-to}}.</p>
     </div>
@@ -128,14 +128,7 @@
         <h2>{{name}}</h2>
         <p>{{about}}</p>
         <br />
-        <h3>Products</h3>
-        <ul>
-          {{#each products}}
-          <li><p>{{#link-to 'product' this }}{{title}}{{/link-to}}</p></li>
-          {{else}}
-            <li><p class='text-muted'><em>No items yet!</em></p></li>
-          {{/each}}
-        </ul>
+        {{render 'contact/products' products}}
       </div>
     </div>
   </script>
@@ -180,13 +173,23 @@
       <img {{bind-attr src='contact.avatar' alt='contact.name'}} class='img-thumbnail img-rounded'/>
     </div>
   </script>
-  <script type='text/x-handlebars' data-template-name='_reviews'>
+  <script type='text/x-handlebars' data-template-name='reviews'>
     <h3>Reviews</h3>
     <ul>
-      {{#each reviews}}
+      {{#each}}
       <li><p>{{text}}</p></li>
       {{else}}
       <li><p class='text-muted'><em>No reviews yet. Be the first to write one!</em></p></li>
+      {{/each}}
+    </ul>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contact/products'>
+    <h3>Products</h3>
+    <ul>
+      {{#each}}
+      <li><p>{{#link-to 'product' this }}{{title}}{{/link-to}}</p></li>
+      {{else}}
+        <li><p class='text-muted'><em>No items yet!</em></p></li>
       {{/each}}
     </ul>
   </script>
