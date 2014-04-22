@@ -25,8 +25,7 @@ App.Product.FIXTURES = [
     description: 'Chair is...',
     isOnSale: true,
     image: 'images/products/chair.jpg',
-    reviews: [100, 101],
-    ratings: []
+    reviews: [100, 101]
   },
   {
     id: 2,
@@ -36,8 +35,7 @@ App.Product.FIXTURES = [
     description: 'Clock is...',
     isOnSale: false,
     image: 'images/products/clock.jpg',
-    reviews: [],
-    ratings: []
+    reviews: []
   },
   {
     id: 3,
@@ -47,8 +45,7 @@ App.Product.FIXTURES = [
     description: 'Bean Bag is...',
     isOnSale: true,
     image: 'images/products/bean_bag.jpg',
-    reviews: [],
-    ratings: []
+    reviews: []
   }
 ];
 
@@ -78,18 +75,23 @@ App.Contact.FIXTURES = [
 App.Review = DS.Model.extend({
   text: DS.attr('string'),
   reviewedAt: DS.attr('date'),
-  product: DS.belongsTo('product')
+  product: DS.belongsTo('product'),
+  rating: DS.attr('number')
 });
 App.Review.FIXTURES = [
   {
     id: 100,
     product: 1,
-    text: "Started a fire in no time!"
+    text: "Started a fire in no time! This is a nice long line of comment that need to be more than two lines",
+    reviewedAt: new Date('12/10/2013').getTime(),
+    rating: 4
   },
   {
     id: 101,
     product: 1,
-    text: "Not the brightest flame, but warm!"
+    text: "Not the brightest flame, but warm!",
+    reviewedAt: new Date('12/10/2013').getTime(),
+    rating: 5
   }
 ];
 
@@ -125,26 +127,20 @@ App.ProductsController = Ember.ArrayController.extend({
   sortProperties: ['title']
 });
 App.ProductController = Ember.ObjectController.extend({
-  text: '',
-  selectedRating: 5,
+  isNotReviewed: Ember.computed.alias('review.isNew'),
+  review: function(){
+    return this.store.createRecord('review',{
+      product: this.get('model')
+    });
+  }.property('model'),
   actions: {
     createReview: function(){
-      var review = this.store.createRecord('review', {
-        text: this.get('text'),
-        product: this.get('model'),
-        reviewedAt: new Date()
-      });
       var controller = this;
-      review.save().then(function() {
-        controller.set('text', '');
+      // this.get('review').set('text', this.get('text'));
+      this.get('review').set('reviewedAt', new Date());
+      this.get('review').save().then(function(review) {
         controller.get('model.reviews').addObject(review);
       });
-    },
-    createRating: function() {
-      var product = this.get('model'),
-          selectedRating = this.get('selectedRating');
-      product.get('ratings').addObject(selectedRating);
-      product.save();
     }
   }
 });
@@ -232,4 +228,12 @@ App.ProductView = Ember.View.extend({
   classNames: ['row'],
   classNameBindings: ['isOnSale'],
   isOnSale: Ember.computed.alias('controller.isOnSale')
+});
+App.ReviewView = Ember.View.extend({
+  isExpanded: false,
+  classNameBindings: ['isExpanded', 'readMore'],
+  click: function(){
+    this.toggleProperty('isExpanded');
+  },
+  readMore: Ember.computed.gt('length', 50)
 });
