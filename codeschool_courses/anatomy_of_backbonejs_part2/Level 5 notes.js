@@ -65,9 +65,9 @@ $('#app').html(editAppointmentForm.render().el);
 
 var AppointmentRouter = new Backbone.Router.extend({
   routes: {
-    "": "index" ,
-    "appointments/new": "newAppointment",
-    "todos/:id/edit": "edit"
+    '': 'index',
+    'appointments/new': 'newAppointment',
+    'todos/:id/edit': 'edit'
   },
   initialize: function(){
     this.appointments = new Appointments();
