@@ -1,4 +1,4 @@
-courses_repo
+Courses Code Repository
 ============
 
-Repository for my work, exercises during courses
+Repository for my work, code and exercises done during courses.
