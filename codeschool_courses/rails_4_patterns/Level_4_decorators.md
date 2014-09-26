@@ -160,7 +160,7 @@ end
 <li>
   <%= @item.name %> <i><%= status(@item) %></i>
 </li>
-```
+
 
 # solution code
 # app/helpers/items_helper.rb
